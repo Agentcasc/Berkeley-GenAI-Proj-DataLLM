@@ -15,14 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import path
-from django.http import HttpResponse
 from django.conf.urls import include
+
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("app.urls")), # new
-    path('favicon.ico', lambda request: HttpResponse(staticfiles_storage.open('favicon.ico').read())),
 ]

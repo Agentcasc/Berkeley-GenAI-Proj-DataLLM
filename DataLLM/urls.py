@@ -19,11 +19,10 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import path
 from django.http import HttpResponse
 from django.conf.urls import include
-from django.views.generic import RedirectView
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("app.urls")), # new
-    path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('favicon.ico')))
+    path('favicon.ico', lambda request: HttpResponse(staticfiles_storage.open('favicon.ico').read())),
 ]

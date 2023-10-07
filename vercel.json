@@ -10,6 +10,5 @@
             "src": "/(.*)",
             "dest": "DataLLM/wsgi.py"
         }
-    ],
-    "rewrites": [{ "source": "/(.*)", "destination": "/room.html" }]
+    ]
 }
